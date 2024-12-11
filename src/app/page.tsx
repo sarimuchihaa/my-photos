@@ -5,6 +5,7 @@ import Image from "next/image";
 
 // Frontend.
 export default function Home() {
+  const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   // State to hold uploaded image URL.
   const [imageUrl, setImageUrl] = useState<string | null>(null);
 
