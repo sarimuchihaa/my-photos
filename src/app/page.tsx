@@ -1,12 +1,7 @@
 // Imports.
-'use client';
-import { useState } from 'react';
-import {
-  CldUploadWidget,
-  CldUploadWidgetPropsChildren,
-  CloudinaryUploadWidgetResults,
-  CloudinaryUploadWidgetInfo,
-} from "next-cloudinary";
+"use client";
+import { useState } from "react";
+import { CldUploadWidget } from "next-cloudinary";
 
 // Frontend.
 export default function Home() {
@@ -21,17 +16,17 @@ export default function Home() {
       <section className="flex flex-col items-center justify-between">
         <CldUploadWidget
           uploadPreset="next_cloudinary_app"
-          onUpload={(result: CloudinaryUploadWidgetResults) => {
-            const info = result.info;
-            // Type guard: Check if `info` is an object and has `secure_url`
-            if (typeof info !== "string" && info?.secure_url) {
-              setImageUrl(info.secure_url);
+          onUpload={(result: any) => {
+            console.log(result);
+            // Set image URL after successful upload.
+            if (result?.info?.secure_url) {
+              setImageUrl(result.info.secure_url); // Store the image URL in state
             }
           }}
         >
-          {({ open }: CldUploadWidgetPropsChildren) => (
+          {({ open }) => (
             <button
-              onClick={() => open && open()} // Check if `open` is defined
+              onClick={() => open()}
               className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 hover:shadow-lg transition-all mt-4"
             >
               Upload image 🧡
