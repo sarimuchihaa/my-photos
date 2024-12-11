@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { useState } from "react";
 import { CldUploadWidget, CloudinaryUploadWidgetResults } from "next-cloudinary"; // Import the correct type
@@ -5,6 +6,9 @@ import Image from "next/image";
 
 // Frontend.
 export default function Home() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const cloudinaryCloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
+
   // State to hold uploaded image URL.
   const [imageUrl, setImageUrl] = useState<string | null>(null);
 
