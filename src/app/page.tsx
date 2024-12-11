@@ -2,6 +2,7 @@
 "use client";
 import { useState } from "react";
 import { CldUploadWidget } from "next-cloudinary";
+import Image from "next/image";
 
 // Frontend.
 export default function Home() {
@@ -38,9 +39,11 @@ export default function Home() {
         {imageUrl && (
           <div className="mt-6">
             <h2 className="text-xl font-semibold mb-4">Uploaded Image:</h2>
-            <img
+            <Image
               src={imageUrl}
               alt="Uploaded"
+              width={500} 
+              height={300}
               className="w-64 h-auto rounded shadow-lg"
             />
           </div>
