@@ -17,7 +17,7 @@ export default function Home() {
       <h1 className="text-white bg-pink-300 text-3xl font-medium py-2 px-4 inline-block">
         Image Upload App 🏕️⭐🍕
       </h1>
-      <section className="flex flex-col items-center justify-between">
+      <section className="flex flex-col items-center justify-between p-0">
         <CldUploadWidget
           uploadPreset="next_cloudinary_app"
           onSuccess={(result: CloudinaryUploadWidgetResults) => {
