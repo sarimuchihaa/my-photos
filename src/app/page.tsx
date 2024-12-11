@@ -16,7 +16,7 @@ export default function Home() {
       <section className="flex flex-col items-center justify-between">
         <CldUploadWidget
           uploadPreset="next_cloudinary_app"
-          onUpload={(result: any) => {
+          onSuccess={(result: any) => {
             console.log(result);
             // Set image URL after successful upload.
             if (result?.info?.secure_url) {
