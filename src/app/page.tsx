@@ -1,7 +1,6 @@
-// Imports.
 "use client";
 import { useState } from "react";
-import { CldUploadWidget } from "next-cloudinary";
+import { CldUploadWidget, CloudinaryUploadWidgetResults } from "next-cloudinary"; // Import the correct type
 import Image from "next/image";
 
 // Frontend.
@@ -17,10 +16,11 @@ export default function Home() {
       <section className="flex flex-col items-center justify-between">
         <CldUploadWidget
           uploadPreset="next_cloudinary_app"
-          onSuccess={(result: any) => {
+          onSuccess={(result: CloudinaryUploadWidgetResults) => {
             console.log(result);
-            // Set image URL after successful upload.
-            if (result?.info?.secure_url) {
+
+            // Check if the info is an object and has secure_url
+            if (typeof result.info !== 'string' && result.info.secure_url) {
               setImageUrl(result.info.secure_url); // Store the image URL in state
             }
           }}
@@ -42,7 +42,7 @@ export default function Home() {
             <Image
               src={imageUrl}
               alt="Uploaded"
-              width={500} 
+              width={500}
               height={300}
               className="w-64 h-auto rounded shadow-lg"
             />
